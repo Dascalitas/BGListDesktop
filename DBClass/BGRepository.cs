@@ -43,7 +43,7 @@ namespace BGListDesktop.DBClass
             thrownException = new();
             try
             {
-                User user = new User()
+                User user = new()
                 {
                     Id = Guid.NewGuid(),
                     Email = email,
@@ -76,6 +76,7 @@ namespace BGListDesktop.DBClass
                                 select user.Games);
             else return new List<Game>();
         }
+
         public List<Addon> getUserAddons(Guid guid) 
         {
             if (context.Value.Users.Single(u => u.Id == guid).Games.Any())

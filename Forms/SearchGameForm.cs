@@ -14,10 +14,10 @@ namespace BGListDesktop
 {
     public partial class SearchGameForm : Form
     {
-        BGRepository bGRepository = new();
-        private List<Game> games;
-        DataGridView gamesGrid = new DataGridView();
-        Guid userGuid;
+        readonly BGRepository bGRepository = new();
+        private List<Game> games = new();
+        readonly DataGridView gamesGrid = new();
+        readonly Guid userGuid;
         
         public SearchGameForm(Guid guid)
         {
@@ -25,55 +25,54 @@ namespace BGListDesktop
             userGuid = guid;
         }
 
-        private void searchButton_Click(object sender, EventArgs e)
+        private void SearchButton_Click(object sender, EventArgs e)
         {
             if (bGRepository.searchForGames(searchInput.Text, out games))
             {
                 //open list of games
-                this.Size = new System.Drawing.Size(450, 470);
+                this.Size = new Size(450, 470);
 
                 //the grid
-                
                 gamesGrid.Dock = DockStyle.Fill;
                 gamesGrid.AutoGenerateColumns = true;
                 gamesGrid.DataSource = games;
-                gamesGrid.Size = new System.Drawing.Size(320, 200);
-                gamesGrid.Location = new System.Drawing.Point(65, 200);
+                gamesGrid.Size = new Size(320, 200);
+                gamesGrid.Location = new Point(65, 200);
                 gamesGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                
+
                 // add button
-                Button addButton = new Button();
-                addButton.Size = new System.Drawing.Size(150, 50);
-                addButton.Location = new System.Drawing.Point(175, 410);
-                addButton.Name = "Add";
-                addButton.Click += new System.EventHandler(this.addGame_Click);
+                Button addButton = new()
+                {
+                    Size = new Size(150, 50),
+                    Location = new Point(175, 410),
+                    Name = "Add"
+                };
+                addButton.Click += new(this.AddGame_Click);
             } 
             else
             {
                 //open add game module
-                // TO DO
-                // MessageBox to appear =>i 
                 var result = MessageBox.Show("Игра не найдена в списке. Хотите её добавить?", "Добавить игру", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                  if (result == DialogResult.Yes) 
                  { 
                     // add new Form   
-                    // create new module for inserting new game
+                    // TODO create new module for inserting new game
                  }
             }
         }
 
-        private void closeButton_Click(object sender, EventArgs e)
+        private void CloseButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void addGame_Click(object sender, EventArgs e)
+        private void AddGame_Click(object sender, EventArgs e)
         {
             // verification any game is selected, and can be added
             if (gamesGrid.SelectedRows.Count > 0)
             {
                 // cast rows to Games, and insert to user
-                bGRepository.findGamesAndAdd(userGuid, getSelectedGames());
+                bGRepository.findGamesAndAdd(userGuid, GetSelectedGames());
             }
             else
             {
@@ -81,14 +80,17 @@ namespace BGListDesktop
             }
         }
 
-        private List<string> getSelectedGames()
+        private List<string> GetSelectedGames()
         {
-            List<string> games = null; ;
+            List<string>? games = null;
 
             foreach (DataGridViewRow row in gamesGrid.SelectedRows)
             {
                 games.Add(item: row.Cells[0].Value.ToString());
             }
+
+            //object value = from row in gamesGrid.SelectedRows.AsQueryable() select row.Cells[0].Value.ToString();
+;
             return games;
         }
     }

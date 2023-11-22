@@ -37,7 +37,6 @@ namespace BGListDesktop
             this.titleLabel = new System.Windows.Forms.Label();
             this.titleIcon = new System.Windows.Forms.PictureBox();
             this.greetingLabel = new System.Windows.Forms.Label();
-            this.boardGameList = new System.Windows.Forms.DataGridView();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OptimalPlayers = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gamesBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -46,10 +45,6 @@ namespace BGListDesktop
             this.WishList = new System.Windows.Forms.Button();
             this.AddGameBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.titleIcon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.boardGameList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gamesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gameBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // closeButton
@@ -75,7 +70,7 @@ namespace BGListDesktop
             // titleIcon
             // 
             this.titleIcon.Image = ((System.Drawing.Image)(resources.GetObject("titleIcon.Image")));
-            this.titleIcon.Location = new System.Drawing.Point(-1, 0);
+            this.titleIcon.Location = new System.Drawing.Point(0, 0);
             this.titleIcon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.titleIcon.Name = "titleIcon";
             this.titleIcon.Size = new System.Drawing.Size(60, 70);
@@ -92,57 +87,7 @@ namespace BGListDesktop
             this.greetingLabel.Size = new System.Drawing.Size(114, 28);
             this.greetingLabel.TabIndex = 13;
             this.greetingLabel.Text = "Hello there!";
-            // 
-            // boardGameList
-            // 
-            this.boardGameList.AllowUserToAddRows = false;
-            this.boardGameList.AllowUserToDeleteRows = false;
-            this.boardGameList.AutoGenerateColumns = false;
-            this.boardGameList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.boardGameList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nameDataGridViewTextBoxColumn,
-            this.OptimalPlayers});
-            this.boardGameList.DataSource = this.gamesBindingSource;
-            this.boardGameList.Location = new System.Drawing.Point(12, 105);
-            this.boardGameList.Name = "boardGameList";
-            this.boardGameList.ReadOnly = true;
-            this.boardGameList.RowHeadersWidth = 51;
-            this.boardGameList.RowTemplate.Height = 29;
-            this.boardGameList.Size = new System.Drawing.Size(425, 288);
-            this.boardGameList.TabIndex = 14;
-            this.boardGameList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.boardGameList_CellContentClick);
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // OptimalPlayers
-            // 
-            this.OptimalPlayers.DataPropertyName = "OptimalPlayers";
-            this.OptimalPlayers.HeaderText = "OptimalPlayers";
-            this.OptimalPlayers.MinimumWidth = 6;
-            this.OptimalPlayers.Name = "OptimalPlayers";
-            this.OptimalPlayers.ReadOnly = true;
-            this.OptimalPlayers.Width = 125;
-            // 
-            // gamesBindingSource
-            // 
-            this.gamesBindingSource.DataMember = "Games";
-            this.gamesBindingSource.DataSource = this.usersBindingSource;
-            // 
-            // usersBindingSource
-            // 
-            this.usersBindingSource.DataMember = "Users";
-            this.usersBindingSource.DataSource = this.gameBindingSource;
-            // 
-            // gameBindingSource
-            // 
-            this.gameBindingSource.DataSource = typeof(SQLiteDB.Models.Game);
+            
             // 
             // WishList
             // 
@@ -181,10 +126,6 @@ namespace BGListDesktop
             this.Name = "MainPageForm";
             this.Text = "MainPageForm";
             ((System.ComponentModel.ISupportInitialize)(this.titleIcon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.boardGameList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gamesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gameBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,5 +147,6 @@ namespace BGListDesktop
         private DataGridViewTextBoxColumn OptimalPlayers;
         private BindingSource gamesBindingSource;
         private BindingSource usersBindingSource;
+        private Label noGamesLabel;
     }
 }

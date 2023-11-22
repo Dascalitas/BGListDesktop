@@ -42,16 +42,17 @@
             // 
             this.closeButton.BackgroundImage = global::BGListDesktop.Properties.Resources.close1437;
             this.closeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.closeButton.Location = new System.Drawing.Point(405, 9);
+            this.closeButton.Location = new Point(405, 9);
             this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(33, 33);
+            this.closeButton.Size = new Size(33, 33);
             this.closeButton.TabIndex = 15;
             this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // titleLabel
             // 
-            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.titleLabel.Location = new System.Drawing.Point(65, 9);
+            this.titleLabel.Font = new Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.titleLabel.Location = new Point(65, 9);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(300, 50);
             this.titleLabel.TabIndex = 14;
@@ -60,7 +61,7 @@
             // titleIcon
             // 
             this.titleIcon.Image = ((System.Drawing.Image)(resources.GetObject("titleIcon.Image")));
-            this.titleIcon.Location = new System.Drawing.Point(-1, -3);
+            this.titleIcon.Location = new Point(0, 0);
             this.titleIcon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.titleIcon.Name = "titleIcon";
             this.titleIcon.Size = new System.Drawing.Size(60, 70);
@@ -71,7 +72,7 @@
             // searchLabel
             // 
             this.searchLabel.AutoSize = true;
-            this.searchLabel.Location = new System.Drawing.Point(65, 83);
+            this.searchLabel.Location = new Point(65, 83);
             this.searchLabel.Name = "searchLabel";
             this.searchLabel.Size = new System.Drawing.Size(221, 20);
             this.searchLabel.TabIndex = 16;
@@ -94,7 +95,7 @@
             this.searchButton.TabIndex = 18;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            this.searchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // SearchGameForm
             // 

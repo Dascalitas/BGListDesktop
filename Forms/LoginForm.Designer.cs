@@ -113,7 +113,7 @@
             this.loginButton.TabIndex = 7;
             this.loginButton.Text = "Log In";
             this.loginButton.UseVisualStyleBackColor = true;
-            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
+            this.loginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
             // signupButton
             // 
@@ -124,7 +124,7 @@
             this.signupButton.TabIndex = 8;
             this.signupButton.Text = "Sign Up";
             this.signupButton.UseVisualStyleBackColor = true;
-            this.signupButton.Click += new System.EventHandler(this.signupButton_Click);
+            this.signupButton.Click += new System.EventHandler(this.SignupButton_Click);
             // 
             // closeButton
             // 
@@ -135,7 +135,7 @@
             this.closeButton.Size = new System.Drawing.Size(33, 33);
             this.closeButton.TabIndex = 9;
             this.closeButton.UseVisualStyleBackColor = true;
-            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // emailErrorLabel
             // 
